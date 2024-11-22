@@ -8,53 +8,108 @@ from feedsearch_crawler.crawler import coerce_url
 from datetime import datetime
 import collections
 
+
 urls = [
-    # "arstechnica.com",
-    # "https://davidbeath.com",
-    # "http://xkcd.com",
-    # "http://jsonfeed.org",
-    # "en.wikipedia.com",
-    # "scientificamerican.com",
-    # "newyorktimes.com",
-    # "https://www.dancarlin.com",
-    # "https://www.hanselminutes.com/",
-    # "nytimes.com",
-    # "https://www.jeremydaly.com/serverless-microservice-patterns-for-aws/",
-    # "feedhandbook.com",
-    # "https://americanaffairsjournal.org/2019/05/ubers-path-of-destruction/",
-    # "localhost:8080/test",
-    # "theatlantic.com",
-    # "nypost.com",
-    # "https://www.washingtonpost.com",
-    # "localhost:5000",
-    # "latimes.com",
-    # "http://feeds.washingtonpost.com/rss/rss_fact-checker?noredirect=on",
-    # "http://tabletopwhale.com/index.html"
-    # "www.vanityfair.com",
-    # "bloomberg.com",
-    # "http://www.bloomberg.com/politics/feeds/site.xml",
-    # "propublica.org"
-    # "npr.org",
-    # "rifters.com",
-    # "https://www.bbc.co.uk/podcasts"
-    # "https://www.bbc.co.uk/programmes/p02nrsln/episodes/downloads",
-    # "https://breebird33.tumblr.com/",
-    # "https://neurocorp.tumblr.com/",
-    # "https://breebird33.tumblr.com/rss"
-    # "https://resel.fr/rss-news"
-    # "https://muhammadraza.me"
-    # "https://www.franceinter.fr/rss/a-la-une.xml",
-    # "harpers.org",
-    # "slashdot.com",
-    # "https://bearblog.dev",
-    # "aeon.co",
-    # "https://davidgerard.co.uk/blockchain/"
-    # "raymii.org/s/"
-    # "stratechery.com",
-    # "www.internet-law.de",
-    # "https://medium.com/zendesk-engineering/the-joys-of-story-estimation-cda0cd807903",
-    # "https://danwang.co/",
-    "http://matthewdickens.me/podcasts/TWIS-feed.xml"
+    "http://www.wetpaint.com/",
+    "https://www.zoho.com",
+    "http://www.digg.com",
+    "https://www.meta.com",
+    "http://www.omnidrive.com",
+    "http://www.geni.com",
+    "http://www.flektor.com",
+    "https://www.fox.com/",
+    "https://twitter.com/home?lang=en",
+    "http://www.stumbleupon.com/",
+    "http://gizmoz.com",
+    "http://www.scribd.com",
+    "http://www.slacker.com",
+    "http://www.lala.com",
+    "http://www.helio.com",
+    "http://ebay.com",
+    "http://wis.dm",
+    "http://www.meetmoi.com",
+    "http://postini.com",
+    "http://joost.com",
+    "http://www.hutchison-whampoa.com/",
+    "http://www.ckh.com.hk/",
+    "https://www.lksf.org",
+    "https://www.paramount.com/brand/cbs-entertainment",
+    "https://www.paramount.com",
+    "http://babelgum.com",
+    "http://www.plaxo.com/",
+    "http://www.cisco.com",
+    "http://powerset.com",
+    "http://technorati.com",
+    "http://www.addthis.com",
+    "https://www.openx.com/",
+    "http://mahalo.com",
+    "http://sparter.com",
+    "http://kyte.de.tl/",
+    "https://www.warnermedia.com/",
+    "https://www.goldmansachs.com",
+    "http://thoof.com",
+    "http://jinglenetworks.com",
+    "http://www.hearst.com",
+    "https://strands.com",
+    "https://www.ning.com",
+    "http://www.lifelock.com",
+    "http://wesabe.com",
+    "http://www.prosper.com",
+    "https://www.youtube.com/",
+    "http://www.blogtv.com",
+    "https://livestream.com/",
+    "http://www.justin.tv",
+    "https://video.ibm.com",
+    "http://www.tapuz.co.il",
+    "http://grandcentral.com",
+    "http://www.ikan.net",
+    "https://www.fortunebusinessinsights.com/",
+    "http://topix.com",
+    "http://www.tribunemedia.com/",
+    "http://www.gannett.com",
+    "http://www.jobster.co.uk",
+    "http://www.pownce.com/",
+    "http://www.revision3.com",
+    "http://www.allpeers.com/",
+    "http://www.aggregateknowledge.com",
+    "http://zing.net",
+    "http://www.criticalmetrics.com",
+    "http://zenzui.com",
+    "http://www.spock.com",
+    "http://wize.com",
+    "http://sodahead.com",
+    "http://hotornot.com",
+    "http://www.popsugar.com",
+    "https://www.nbcuniversal.com/",
+    "http://jajah.com",
+    "http://www.skype.com",
+    "http://gizmo5.com",
+    "http://www.fring.com",
+    "http://iskoot.com",
+    "http://www.eqo.com",
+    "http://allofmp3.com",
+    "http://amiestreet.com",
+    "http://www.sellaband.com",
+    "http://funnyordie.com",
+    "http://steorn.com",
+    "http://surphace.com",
+    "http://icontact.com",
+    "http://meevee.com",
+    "http://www.blinkx.com",
+    "http://zlio.com",
+    "http://yelp.com",
+    "http://www.jaiku.com",
+    "http://tun3r.com",
+    "http://www.leggmason.com",
+    "http://www.tripup.com",
+    "http://coghead.com",
+    "http://zooomr.com",
+    "https://www.kayak.co.in",
+    "http://www.farecast.com/",
+    "http://www.yapta.com",
+    "http://www.dailymotion.com",
+    "http://www.kickapps.com",
+    "http://www.rockyou.com",
 ]
 
 
@@ -86,12 +141,12 @@ def run_crawl():
 
     crawler = FeedsearchSpider(
         concurrency=10,
-        total_timeout=30,
-        request_timeout=30,
+        total_timeout=100000,
+        request_timeout=100000,
         user_agent=user_agent,
         # headers=headers,
         favicon_data_uri=False,
-        max_depth=5,
+        max_depth=1,
         max_retries=3,
         ssl=True,
         full_crawl=False,
@@ -155,7 +210,7 @@ if __name__ == "__main__":
     )
     ch.setFormatter(formatter)
     fl = logging.FileHandler(
-        f"/home/dbeath/code/feedsearch-crawler/logs/feedsearch_crawl_{datetime.utcnow().isoformat()}"
+        f"/Users/cameroncuster/exposit-ai/feedsearch-crawler/logs/feedsearch_crawl_{datetime.utcnow().isoformat()}"
     )
     fl.setLevel((logging.DEBUG))
     fl.setFormatter(formatter)
@@ -163,6 +218,8 @@ if __name__ == "__main__":
     logger.addHandler(fl)
 
     start = time.perf_counter()
+
     run_crawl()
+
     duration = int((time.perf_counter() - start) * 1000)
     print(f"Entire process ran in {duration}ms")
